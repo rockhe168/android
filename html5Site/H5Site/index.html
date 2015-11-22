@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsandroid_test</title>
+
+    <script type="text/javascript" language="javascript">
+
+        function JsInvokeAndroidMethod() {
+            //alert("init..." + window.androidObject.androidHelloWorld);
+            var str = window.androidObject.androidHelloWorld();
+            alert(str);
+        }
+
+        function JsInvokeAndroidMethod2() {
+            
+            window.androidObject.showTip();
+            
+        }
+
+        function JSHelloWorld() {
+            document.getElementById("id_input").value = "Android Invoke JS";
+            document.getElementById("id_input").style = "color:red";
+        }
+
+        function JSHelloWorld2(param) {
+            document.getElementById("id_input2").value = "Android Invoke JS : " + param;
+        }
+    </script>
+</head>
+
+
+<body>
+
+    Android与JS 交互实例
+
+    <br>
+    <br>
+
+    <input type="button" value="JsInvokeAndroidMethod(带返回值)" onclick="JsInvokeAndroidMethod()" />
+    <br>
+    <input type="button" value="JsInvokeAndroidMethod2(不带返回值,弹android提示框)" onclick="JsInvokeAndroidMethod2()" />
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <input id="id_input" style="width: 90%" type="text" value="null" />
+    <br>
+    <input type="button" value="AndroidInvokeJS" onclick="window.androidObject.JSHelloWorld()" />
+
+    <br>
+    <br>
+    <br>
+
+    <input id="id_input2" style="width: 90%" type="text" value="null" />
+    <br>
+    <input type="button" value="AndroidInvokeJSParams" onclick="window.jsObj.JSHelloWorld()" />
+
+</body>  
+
+</html>

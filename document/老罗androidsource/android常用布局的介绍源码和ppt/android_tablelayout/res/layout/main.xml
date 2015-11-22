@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<TableLayout android:id="@+id/tablelayout1"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:background="#FFFFFF" android:stretchColumns="0">
+		<TableRow android:id="@+id/tablerow1" android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<TextView android:id="@+id/textview1" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:background="#fd8d8d"
+				android:textColor="#000000" android:padding="4px" android:text="表格布局的使用"
+				android:layout_centerInParent="true">
+			</TextView>
+		</TableRow>
+	</TableLayout>
+
+	<TableLayout android:id="@+id/mytablelayout2"
+		android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:stretchColumns="0,1,2,3">
+
+		<TableRow android:id="@+id/tablerow2" android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<Button android:id="@+id/button1" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Button1"></Button>
+			<Button android:id="@+id/button1" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Button2"></Button>
+			<Button android:id="@+id/button1" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Button3"></Button>
+			<Button android:id="@+id/button1" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="Button4"></Button>
+		</TableRow>
+	</TableLayout>
+
+	<TableLayout android:id="@+id/tablelayout3"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:stretchColumns="0">
+		<TableRow android:id="@+id/tablerow3" android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<EditText android:text="查询" android:layout_width="match_parent"
+				android:layout_height="match_parent" android:id="@+id/textview1"></EditText>
+		</TableRow>
+	</TableLayout>
+</LinearLayout>
