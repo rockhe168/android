@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var url = "http://192.168.1.102:8080/User/Login";
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                data:JSON.stringify({'username':'rock','age':88}),
+                url: url,
+                dataType: "json",
+                success:function(data)
+                {
+                    $("#username").val(data.username);
+                    $("#age").val(data.age);
+
+                },
+                error: function(data){
+                    alert("fail"+data);
+                }
+            });
+            
+            //$.post(url, JSON.stringify({ 'username': 'rock', 'age': 88 }),
+            //   function (data) {
+            //       $("#username").val(data.username);
+            //        $("#age").val(data.age);
+            //   });
+        })
+
+
+        function hello() {
+            var url = "http://192.168.1.102:8080/User/Login";
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                data: "username='ddd'&age=78",
+                url: url,
+                dataType: "json",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (data) {
+                    alert("fail" + data);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Post</h2>
+
+    <form action="192.168.1.102:8080/User/Login" method="post">
+        Username: <input type="text" id="username" name="username" value="">
+        Age: <input type="text" id="age" name="age" value="">
+        <input type="submit" value="Submit">
+    </form>
+
+    <input type="button" onclick="hello()"/>
+</body>
+</html>

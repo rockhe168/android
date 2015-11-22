@@ -1,0 +1,6 @@
+E:\GitHub\android\html5Site\test\bin\test.dll.config
+E:\GitHub\android\html5Site\test\bin\test.dll
+E:\GitHub\android\html5Site\test\bin\test.pdb
+E:\GitHub\android\html5Site\test\obj\Debug\test.dll
+E:\GitHub\android\html5Site\test\obj\Debug\test.pdb
+E:\GitHub\android\html5Site\test\obj\Debug\test.csprojResolveAssemblyReference.cache

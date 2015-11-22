@@ -27,30 +27,6 @@
             document.getElementById("id_input2").value = "Android Invoke JS : " + param;
         }
     </script>
-
-    <script type="text/javascript" src="./lib/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript">
-
-        $(function () {
-            var url = "/User/Login";
-
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify({'username': 'rock', 'age': 88 }),
-                url: url,
-                dataType: "json",
-                success: function (data) {
-                    $("#username").val(data.username);
-                    $("#age").val(data.age);
-
-                },
-                error: function (data) {
-                    alert("fail" + data);
-                }
-            });
-        })
-    </script>
 </head>
 
 
