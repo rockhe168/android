@@ -1,1 +1,1 @@
-include ':OpenWindowAndTipWindow', ':WebViewDemo', ':JSInvokeWebView', ':listviewbysimpleadapter', ':HttpGet', ':CtripVacation'
+include ':OpenWindowAndTipWindow', ':WebViewDemo', ':JSInvokeWebView', ':HttpGet', ':CtripVacation', ':listviewdemo'

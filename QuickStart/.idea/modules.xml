@@ -8,7 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/OpenWindowAndTipWindow/OpenWindowAndTipWindow.iml" filepath="$PROJECT_DIR$/OpenWindowAndTipWindow/OpenWindowAndTipWindow.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuickStart.iml" filepath="$PROJECT_DIR$/QuickStart.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" filepath="$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/listviewbysimpleadapter/listviewbysimpleadapter.iml" filepath="$PROJECT_DIR$/listviewbysimpleadapter/listviewbysimpleadapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listviewdemo/listviewdemo.iml" filepath="$PROJECT_DIR$/listviewdemo/listviewdemo.iml" />
     </modules>
   </component>
 </project>
