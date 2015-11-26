@@ -85,11 +85,8 @@ public class RecommendProductSender {
                     if(resJson.has("BarginProductList")){
                         originList =resJson.optJSONArray("BarginProductList");
                     }
-
                     if(originList !=null && originList.length() !=0){
-
                             ArrayList<RecommendProductModel> recommendProductList = new ArrayList<RecommendProductModel>();
-
                             int lenght = originList.length();
                             for (int i=0;i<lenght;i++)
                             {
@@ -119,6 +116,61 @@ public class RecommendProductSender {
             }
         },DEFAULT_TIMEOUT);
 
+    }
+
+    public void Send(){
+        String baseUrl="http://m.ctrip.com/restapi/soa2/10294/APIGetBarginProductListForBeiJingSite.json";
+
+        JSONObject request = new JSONObject();
+
+        try {
+            request.put("head", CtripHTTPClient.buildRequestHead(null));
+            request.put("Platform","H5");
+            request.put("SaleCityId","2");
+            request.put("TakeNum","8");
+            request.put("contentType","json");
+            //request.put("Reserved", "");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        CtripHTTPClient httpClient = CtripHTTPClient.getNewClient();
+        Response response =httpClient.syncPost(baseUrl, request.toString());
+
+        if(response !=null)
+        {
+            ResponseBody body = response.body();
+
+            try {
+                String respStr = new String(body.bytes(),"utf-8");
+                JSONObject resJson = new JSONObject(respStr);
+
+                JSONArray originList = null;
+                if(resJson.has("BarginProductList")){
+                    originList =resJson.optJSONArray("BarginProductList");
+                }
+                if(originList !=null && originList.length() !=0){
+                    ArrayList<RecommendProductModel> recommendProductList = new ArrayList<RecommendProductModel>();
+                    int lenght = originList.length();
+                    for (int i=0;i<lenght;i++)
+                    {
+                        JSONObject jo = (JSONObject) originList.get(i);
+                        if(jo !=null){
+                            RecommendProductModel model =new RecommendProductModel();
+                            model.ProductId = jo.optInt("ProductId");
+                            model.ProductName = jo.getString("ProductName");
+                            model.ImageUrl = jo.getString("CoverImageUrl");
+                            model.MinPrice = jo.getString("SalesPrice");
+                            recommendProductList.add(model);
+                            System.out.print(model.ProductName+"------------->");
+                        }
+                    }
+                }
+
+            } catch (Exception e){
+
+                e.printStackTrace();
+            }
+        }
     }
 
 }

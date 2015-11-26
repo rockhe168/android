@@ -15,7 +15,9 @@
             <option value="$PROJECT_DIR$/JSInvokeWebView" />
             <option value="$PROJECT_DIR$/OpenWindowAndTipWindow" />
             <option value="$PROJECT_DIR$/WebViewDemo" />
+            <option value="$PROJECT_DIR$/cachehttpimage" />
             <option value="$PROJECT_DIR$/listviewdemo" />
+            <option value="$PROJECT_DIR$/okhttp" />
           </set>
         </option>
       </GradleProjectSettings>

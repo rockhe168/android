@@ -1,1 +1,1 @@
-include ':OpenWindowAndTipWindow', ':WebViewDemo', ':JSInvokeWebView', ':HttpGet', ':CtripVacation', ':listviewdemo'
+include ':OpenWindowAndTipWindow', ':WebViewDemo', ':JSInvokeWebView', ':HttpGet', ':CtripVacation', ':listviewdemo', ':okhttp', ':cachehttpimage'
