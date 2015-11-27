@@ -114,8 +114,7 @@ public class AsyncBitmapLoader {
                     dir.mkdirs();
                 }
 
-                File bitmapFile = new File(IMAGE_ROOT_PATH+"/" +
-                        imageURL.substring(imageURL.lastIndexOf("/") + 1));
+                File bitmapFile = new File(IMAGE_ROOT_PATH+"/" + imageURL.substring(imageURL.lastIndexOf("/") + 1));
                 if(!bitmapFile.exists())
                 {
                     try

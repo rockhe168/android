@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/CtripVacation" />
+            <option value="$PROJECT_DIR$/FileHandler" />
             <option value="$PROJECT_DIR$/HttpGet" />
             <option value="$PROJECT_DIR$/JSInvokeWebView" />
             <option value="$PROJECT_DIR$/OpenWindowAndTipWindow" />
