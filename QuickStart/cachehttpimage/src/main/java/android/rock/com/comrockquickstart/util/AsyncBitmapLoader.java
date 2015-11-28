@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.rock.com.comrockquickstart.MainActivity;
 import android.widget.ImageView;
 
 import java.io.File;
@@ -19,10 +20,15 @@ import java.util.HashMap;
  * Created by xhhe on 2015/11/26.
  */
 public class AsyncBitmapLoader {
+
+    public AsyncBitmapLoader(String path){
+        ROOT_PATH = path;
+    }
+
     /**
      * 根路径
      */
-    private static final String ROOT_PATH = Environment.getRootDirectory().getPath();
+    private static String ROOT_PATH = Environment.getRootDirectory().getPath();
     /**
      * 图片缓存根目录
      */
