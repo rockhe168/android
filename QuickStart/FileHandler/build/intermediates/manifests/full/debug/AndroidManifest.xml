@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.rock.com.quickstart"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+
+    <!--
+    而在4.0开发的源码当中，由于有了内外置sd卡的区分，android.permission.WRITE_EXTERNAL_STORAGE的权限用来设置了内置sd卡的写权限，
+    如果在manifest中只是配置了这个权限，那个应用只能在内置sd卡中进行写操作，还是无法在外置sd卡中进行写操作。
+    需要写外置sd卡的话，需要配置另一个权限android.permission.WRITE_MEDIA_STORAGE，这样就可以在外置sd卡中进行写入操作了。
+    -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 允许Http -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="android.rock.com.quickstart.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
