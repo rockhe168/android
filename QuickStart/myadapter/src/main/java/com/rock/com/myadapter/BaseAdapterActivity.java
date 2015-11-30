@@ -1,26 +1,11 @@
 package com.rock.com.myadapter;
 
 import android.app.Activity;
-import android.app.ListActivity;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.StrictMode;
-import com.rock.com.myadapter.R;
-import com.rock.com.myadapter.util.FileUtils;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
@@ -35,77 +20,35 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-
-//有缓存本地地方文件，线都本地缓存的文件，不然实时去服务器上去
-//2,每当页面销毁时，开一个异步线程获取服务器最新文件下载到本地缓存中去
-public class MainActivity extends Activity {
+/**
+ * Created by Administrator on 2015/11/30 0030.
+ */
+public class BaseAdapterActivity extends Activity {
 
     private static final MediaType MediaType_JSON = MediaType.parse("application/json;charset=utf-8");
-    //private AsyncBitmapLoader asyncBitmapLoader;
-    private String path;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.baseadapteractivity);
+        //navigationSend();
+        initNavigationGridView(getDataList());
 
-        setContentView(R.layout.tourindexactivity);
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
-        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectLeakedSqlLiteObjects().detectLeakedClosableObjects().penaltyLog().penaltyDeath().build());
-        path = MainActivity.this.getFilesDir().getPath();
-        initData(path);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        //开启线程从新下载数据
-        //如果不在内存缓存中，也不在本地（被jvm回收掉），则开启线程下载图片
-        new Thread()
-        {
-            /* (non-Javadoc)
-             * @see java.lang.Thread#run()
-             */
-            @Override
-            public void run()
-            {
-                String filePath = path + "/" + "VacationHomePage.json";
-                navigationSend(filePath,true);
-            }
-        }.start();
-
+        Log.e("TAG","onDestroy被执行了....");
     }
 
-    private void initData(String path)
-    {
-        //先检查本地是否存在
-        String filePath = path + "/" + "VacationHomePage.json";
-
-        File file = new File(filePath);
-
-        if(!file.exists())
-        {
-            navigationSend(filePath,true);
-        }else{
-
-            String content =  FileUtils.readFileContent(file);
-            initNavigation(content);
-        }
-    }
-
-
-    private synchronized void navigationSend(final String filePath, final boolean isShowUI)
+    private void navigationSend()
     {
         String url = "http://m.ctrip.com/restapi/soa2/10124/VacationHomePage.json";
 
@@ -137,34 +80,37 @@ public class MainActivity extends Activity {
                 ResponseBody body = response.body();
                 byte[] bytes = body.bytes();
                 final String responseStr = new String(bytes, "utf-8");
-                FileUtils.saveFileToDisk(bytes, filePath);
-                //来第一次进入
-                if(isShowUI)
-                {
-                    //主线程中处理UI
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            initNavigation(responseStr);
-                        }
-                    });
-                }else {
-                    //更新数据-->把图片也更新了。。。
-                    parseResponseData(responseStr,path);
-                }
+                //主线程中处理UI
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        initNavigation(responseStr);
+                    }
+                });
             }
         });
     }
 
     private void initNavigation(String jsonStr)
     {
-        String path = MainActivity.this.getFilesDir().getPath();
-        ArrayList<HashMap<String, Object>> dataList = parseResponseData(jsonStr,path);
-        initNavigationGridView(dataList,path);
+        ArrayList<HashMap<String, Object>> dataList = parseResponseData(jsonStr);
+        initNavigationGridView(dataList);
+    }
+
+    private ArrayList<HashMap<String, Object>> getDataList(){
+        ArrayList<HashMap<String, Object>> dataList = new ArrayList<HashMap<String, Object>>();
+
+        int length =10;
+        for (int i=0;i<length;i++) {
+            HashMap<String, Object> navigation = new HashMap<String, Object>();
+            navigation.put("ItemText", "hellworld"+i);//按序号做ItemText
+            dataList.add(navigation);
+        }
+        return dataList;
     }
 
     //解析响应数据
-    private ArrayList<HashMap<String, Object>> parseResponseData(String responseStr,final String path)
+    private ArrayList<HashMap<String, Object>> parseResponseData(String responseStr)
     {
         final ArrayList<HashMap<String, Object>> dataList = new ArrayList<HashMap<String, Object>>();
         //ResponseBody body = response.body();
@@ -185,7 +131,7 @@ public class MainActivity extends Activity {
                 String url =navigationModel.getString("AppLink");
                 String imageUrl = navigationModel.getString("AppUrl");
                 HashMap<String, Object> navigation = new HashMap<String, Object>();
-                navigation.put("ItemImage",getImage(imageUrl,path)); //R.drawable.search);//添加图像资源的ID
+                //navigation.put("ItemImage",getUrlImage(imageUrl)); //R.drawable.search);//添加图像资源的ID
                 navigation.put("ItemText", showText);//按序号做ItemText
                 navigation.put("Url",url);
                 dataList.add(navigation);
@@ -200,13 +146,15 @@ public class MainActivity extends Activity {
         return  dataList;
     }
 
-    private void initNavigationGridView(final ArrayList<HashMap<String, Object>> dataList,final String path)
+    private void initNavigationGridView(ArrayList<HashMap<String, Object>> dataList)
     {
-        Log.e("TAG","--------------------------------------------------->");
+        Log.e("TAG","我进来了--------------------------------------------------->");
         //显示入口
         GridView gridview = (GridView) findViewById(R.id.gridview_entry);
-        MyAdapter myAdapter = new MyAdapter(MainActivity.this,dataList);
+        MyAdapter myAdapter = new MyAdapter(BaseAdapterActivity.this,dataList);
         gridview.setAdapter(myAdapter);
+
+        Log.e("TAG","执行完毕，自动踢出....");
 
         /*
         //生成适配器的ImageItem <====> 动态数组的元素，两者一一对应
@@ -251,36 +199,6 @@ public class MainActivity extends Activity {
         });
         */
     }
-
-
-    public Bitmap getImage(String imageHttpUrl,String cachePath)
-    {
-        Bitmap bitmap =null;
-        String imageName = imageHttpUrl.substring(imageHttpUrl.lastIndexOf("/") + 1);
-        String imagePath = cachePath +"/"+imageName;
-        File file =new File(imagePath);
-        if(!file.exists())
-        {
-            //去下载
-            bitmap = getUrlImage(imageHttpUrl);
-            //落地
-            boolean result = FileUtils.saveFileToDisk(bitmap,imagePath);
-            if(result){
-                Log.e("img","图片命中下载并落地成功..."+imagePath);
-            }else
-            {
-                Log.e("img","图片命中下载并落地失败..."+imagePath);
-            }
-        }
-        else
-        {
-            Log.e("img","图片命中..."+imagePath);
-            bitmap =FileUtils.getImageBitmap(imagePath);//GetLocalBitmap(imagePath);
-        }
-
-        return  bitmap;
-    }
-
     //加载图片
     public Bitmap getUrlImage(String url) {
         Bitmap img = null;
@@ -303,9 +221,4 @@ public class MainActivity extends Activity {
     }
 
 
-
-
-
-
 }
-
