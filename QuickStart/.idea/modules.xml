@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/listviewdemo/listviewdemo.iml" filepath="$PROJECT_DIR$/listviewdemo/listviewdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myadapter/myadapter.iml" filepath="$PROJECT_DIR$/myadapter/myadapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/okhttp/okhttp.iml" filepath="$PROJECT_DIR$/okhttp/okhttp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharedperferencesdemo/sharedperferencesdemo.iml" filepath="$PROJECT_DIR$/sharedperferencesdemo/sharedperferencesdemo.iml" />
     </modules>
   </component>
 </project>
