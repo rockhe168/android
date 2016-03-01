@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences= null;
@@ -30,10 +32,14 @@ public class MainActivity extends AppCompatActivity {
         Button btnReader = (Button)findViewById(R.id.btnRead);
         Button btnWrite = (Button)findViewById(R.id.btnWrite);
         Button btnClear = (Button)findViewById(R.id.btnClear);
+        Button btnReaderObject = (Button)findViewById(R.id.btnReadObject);
+        Button btnWriteOjbect = (Button)findViewById(R.id.btnWriteObject);
 
         btnReader.setOnClickListener(listener);
         btnWrite.setOnClickListener(listener);
         btnClear.setOnClickListener(listener);
+        btnReaderObject.setOnClickListener(listener);
+        btnWriteOjbect.setOnClickListener(listener);
 
     }
 
@@ -50,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btnClear:
                     ClearSharedPerference();
+                    break;
+                case R.id.btnReadObject:
+                    ReaderObjectSharedPerference();
+                    break;
+                case R.id.btnWriteObject:
+                    WriteObjectSharedPerference();
                     break;
             }
         }
@@ -76,5 +88,27 @@ public class MainActivity extends AppCompatActivity {
     {
         sharedPreferenceEdit.clear().commit();
         Toast.makeText(MainActivity.this,"清理成功",Toast.LENGTH_SHORT).show();
+    }
+
+    private void WriteObjectSharedPerference()
+    {
+            UserInfo userInfo = new UserInfo();
+            userInfo.userName = "rock";
+            userInfo.age =30;
+
+            sharedPreferenceEdit.pu
+    }
+
+    private void ReaderObjectSharedPerference()
+    {
+
+    }
+
+    public class UserInfo implements Serializable{
+
+        public  String userName;
+
+        public int age;
+
     }
 }

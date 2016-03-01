@@ -44,6 +44,12 @@
                 android:text="Clear"
                 android:id="@+id/btnClear"
                 />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Write Object"
+                android:id="@+id/btnWriteObject" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -55,6 +61,13 @@
                 android:text="Result:"
                 />
         </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read Object"
+            android:id="@+id/btnReadObject"
+            android:layout_gravity="right" />
 
     </LinearLayout>
 </RelativeLayout>
