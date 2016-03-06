@@ -3,6 +3,7 @@ package com.rock.com.quickstart;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Toast 在当前窗口显示一个提示框
         Toast.makeText(this,text,Toast.LENGTH_SHORT).show();
+
+
     }
 
     public void openWindow1(View view)

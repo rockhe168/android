@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ActivityDemo/ActivityDemo.iml" filepath="$PROJECT_DIR$/ActivityDemo/ActivityDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/CtripVacation/CtripVacation.iml" filepath="$PROJECT_DIR$/CtripVacation/CtripVacation.iml" />
       <module fileurl="file://$PROJECT_DIR$/FileHandler/FileHandler.iml" filepath="$PROJECT_DIR$/FileHandler/FileHandler.iml" />
       <module fileurl="file://$PROJECT_DIR$/HttpGet/HttpGet.iml" filepath="$PROJECT_DIR$/HttpGet/HttpGet.iml" />
       <module fileurl="file://$PROJECT_DIR$/JSInvokeWebView/JSInvokeWebView.iml" filepath="$PROJECT_DIR$/JSInvokeWebView/JSInvokeWebView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/OpenWindowAndTipWindow/OpenWindowAndTipWindow.iml" filepath="$PROJECT_DIR$/OpenWindowAndTipWindow/OpenWindowAndTipWindow.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuickStart.iml" filepath="$PROJECT_DIR$/QuickStart.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" filepath="$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/cachehttpimage/cachehttpimage.iml" filepath="$PROJECT_DIR$/cachehttpimage/cachehttpimage.iml" />

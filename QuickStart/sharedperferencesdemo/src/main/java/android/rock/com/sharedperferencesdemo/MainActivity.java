@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             userInfo.userName = "rock";
             userInfo.age =30;
 
-            sharedPreferenceEdit.pu
+            //sharedPreferenceEdit.pu
     }
 
     private void ReaderObjectSharedPerference()
