@@ -16,14 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="这里是提示一"
-            android:id="@+id/button1"
+            android:id="@+id/btnOpenTip"
             android:layout_weight="1"
             android:onClick="openTipWindow1" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="这是提示二"
-            android:id="@+id/button2"
+            android:id="@+id/btnOpenTip2"
             android:layout_weight="1"
             />
     </LinearLayout>
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="新开窗口"
-            android:id="@+id/button3"
+            android:id="@+id/btnOpenWindow"
             android:layout_weight="1"
             android:onClick="openWindow1" />
 
@@ -45,9 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="新开窗口(传参数)"
-            android:id="@+id/button4"
-            android:layout_weight="1"
-            android:onClick="openWindow2" />
+            android:id="@+id/btnOpenWindowParams"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,15 +59,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="新开窗口(传参数2)"
-            android:id="@+id/button5"
-            android:layout_weight="1"
-            android:onClick="openWindow3" />
+            android:id="@+id/btnOpenWindowParams2"
+            android:layout_weight="1" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="新开窗口"
-            android:id="@+id/button6"
+            android:text="新开窗口(带返回值)"
+            android:id="@+id/btnOpenWindowParamsResult"
             android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtResultMsg"
+            android:textColor="@color/colorAccent"
+            />
     </LinearLayout>
 </LinearLayout>

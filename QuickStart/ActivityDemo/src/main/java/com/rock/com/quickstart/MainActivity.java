@@ -1,55 +1,143 @@
 package com.rock.com.quickstart;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //控件事件绑定二
-        Button button2= (Button)findViewById(R.id.button2);
+        findViewById(R.id.btnOpenTip).setOnClickListener(listener);
+        findViewById(R.id.btnOpenTip2).setOnClickListener(listener);
+        findViewById(R.id.btnOpenWindow).setOnClickListener(listener);
+        findViewById(R.id.btnOpenWindowParams).setOnClickListener(listener);
+        findViewById(R.id.btnOpenWindowParams2).setOnClickListener(listener);
+        findViewById(R.id.btnOpenWindowParamsResult).setOnClickListener(listener);
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Button button = (Button)v;
-                String text = (String)button.getText();
-                Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+        Log.d("MainActivity", "onCreate");
+        Toast.makeText(this,"MainActivity onCreate",Toast.LENGTH_SHORT).show();
+    }
+
+    private View.OnClickListener listener = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId())
+            {
+                case R.id.btnOpenTip:
+                    openTip();
+                    break;
+                case R.id.btnOpenTip2:
+                    break;
+                case R.id.btnOpenWindow:
+                    openWindow();
+                    break;
+                case R.id.btnOpenWindowParams:
+                    openWindowParams();
+                    break;
+                case R.id.btnOpenWindowParams2:
+                    openWindowParams2();
+                    break;
+                case R.id.btnOpenWindowParamsResult:
+                    openWindowParamsResult();
+                    break;
+
             }
-        });
+        }
+    };
+
+    //加入菜单栏
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.main,menu);//当前activity 加入menu
+        return true;//允许菜单栏显示
     }
 
-    public void openTipWindow1(View view)
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //return super.onOptionsItemSelected(item);
+        switch (item.getItemId())
+        {
+            case R.id.add_item:
+                Toast.makeText(this,"You Click Add",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.remove_item:
+                Toast.makeText(this,"You Click Remove",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+        }
+        return  true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MainActivity", "onStart");
+        Toast.makeText(this,"MainActivity onStart",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("MainActivity", "onRestart");
+        Toast.makeText(this,"MainActivity onRestart",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MainActivity", "onResume");
+        Toast.makeText(this,"MainActivity onResume",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("MainActivity", "onPause");
+        Toast.makeText(this,"MainActivity onPause",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("MainActivity", "onStop");
+        Toast.makeText(this, "MainActivity onStop", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("MainActivity", "onDestroy");
+        Toast.makeText(this,"MainActivity onDestroy",Toast.LENGTH_SHORT).show();
+    }
+
+
+    void openTip()
     {
-        //获取当前组件
-        Button button1 = (Button)view;
-
-        //获取文本
-        String text = (String)button1.getText();
-
-        // Toast 在当前窗口显示一个提示框
-        Toast.makeText(this,text,Toast.LENGTH_SHORT).show();
-
-
+        Toast.makeText(this,"MainActivity onStart",Toast.LENGTH_SHORT).show();
     }
 
-    public void openWindow1(View view)
+    void openWindow()
     {
         Intent intent = new Intent(this,OtherActivity.class);
-
         startActivity(intent);
     }
 
-    public void openWindow2(View view)
+    void openWindowParams()
     {
         Intent intent = new Intent(this,OtherActivity2.class);
 
@@ -59,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openWindow3(View view)
+    void openWindowParams2()
     {
         Intent intent =new Intent(this,OtherActivity2.class);
         Bundle bundle = new Bundle();
@@ -68,5 +156,33 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
 
         startActivity(intent);
+    }
+
+    void openWindowParamsResult()
+    {
+        Intent intent = new Intent(this,ResultActivity.class);
+        intent.putExtra("name","rock");
+        intent.putExtra("age",30);
+
+        startActivityForResult(intent,1);
+    }
+
+    //当从另外一个窗口返回时回调的方法
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode)
+        {
+            case 1://代表从制定的Ativity callback
+                if(resultCode==RESULT_OK)
+                {
+                    String resultData = data.getStringExtra("returnData");
+                    Log.d("ResultActivityReturn", resultData);
+                    TextView txtResultMsg = (TextView)findViewById(R.id.txtResultMsg);
+                    txtResultMsg.setText(resultData);
+                }
+                break;
+            default:
+        }
     }
 }
