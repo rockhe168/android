@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--引入了Title的布局-->
+    <!--
+    <include layout="@layout/title"></include>
+    -->
+
+    <!--引入Title 自定义控件-->
+    <android.rock.com.userdefinedviewdemo.views.Title
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </android.rock.com.userdefinedviewdemo.views.Title>
+
+</LinearLayout>

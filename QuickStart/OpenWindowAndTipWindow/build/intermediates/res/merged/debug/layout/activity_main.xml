@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--这个地方有两行，所以应该用垂直布局（orientation="vertical"），用水平的话，下面就算是两个Linear 也是一行-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这里是提示一"
+            android:id="@+id/button1"
+            android:layout_weight="1"
+            android:onClick="openTipWindow1" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这是提示二"
+            android:id="@+id/button2"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新开窗口"
+            android:id="@+id/button3"
+            android:layout_weight="1"
+            android:onClick="openWindow1" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新开窗口(传参数)"
+            android:id="@+id/button4"
+            android:layout_weight="1"
+            android:onClick="openWindow2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新开窗口(传参数2)"
+            android:id="@+id/button5"
+            android:layout_weight="1"
+            android:onClick="openWindow3" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新开窗口"
+            android:id="@+id/button6"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>
+<!-- From: file:/E:/GitHub/android/QuickStart/OpenWindowAndTipWindow/src/main/res/layout/activity_main.xml -->

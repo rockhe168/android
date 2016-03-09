@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/title_bg"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBack"
+        android:text="Back"
+        android:textColor="#fff"
+        android:background="@drawable/back_bg"
+        android:layout_gravity="center"
+
+        />
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtHeaderTitle"
+        android:text="This is Header!"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnEdit"
+        android:text="Eidt"
+        android:background="@drawable/edit_bg"
+        android:layout_gravity="center"
+        android:textColor="#fff"
+        />
+
+</LinearLayout>

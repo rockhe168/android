@@ -5,7 +5,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="C:\android\AndroidStudio\gradle\gradle-2.4" />
+        <option name="gradleHome" value="D:\android\androidstudio\gradle\gradle-2.4" />
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/FileHandler" />
             <option value="$PROJECT_DIR$/HttpGet" />
             <option value="$PROJECT_DIR$/JSInvokeWebView" />
+            <option value="$PROJECT_DIR$/UserDefinedViewDemo" />
             <option value="$PROJECT_DIR$/WebViewDemo" />
             <option value="$PROJECT_DIR$/cachehttpimage" />
             <option value="$PROJECT_DIR$/circleviewpager" />
@@ -23,6 +24,8 @@
             <option value="$PROJECT_DIR$/myadapter" />
             <option value="$PROJECT_DIR$/okhttp" />
             <option value="$PROJECT_DIR$/sharedperferencesdemo" />
+            <option value="$PROJECT_DIR$/uilayoutdemo" />
+            <option value="$PROJECT_DIR$/uisizedemo" />
           </set>
         </option>
       </GradleProjectSettings>
