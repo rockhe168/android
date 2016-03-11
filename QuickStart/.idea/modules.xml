@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" filepath="$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/cachehttpimage/cachehttpimage.iml" filepath="$PROJECT_DIR$/cachehttpimage/cachehttpimage.iml" />
       <module fileurl="file://$PROJECT_DIR$/circleviewpager/circleviewpager.iml" filepath="$PROJECT_DIR$/circleviewpager/circleviewpager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentnewsdemo/fragmentnewsdemo.iml" filepath="$PROJECT_DIR$/fragmentnewsdemo/fragmentnewsdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/handlerdemo/handlerdemo.iml" filepath="$PROJECT_DIR$/handlerdemo/handlerdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/listviewdemo/listviewdemo.iml" filepath="$PROJECT_DIR$/listviewdemo/listviewdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/myadapter/myadapter.iml" filepath="$PROJECT_DIR$/myadapter/myadapter.iml" />
