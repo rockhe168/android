@@ -2,8 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1,user-scalable=no">
+    <meta property="og:site_name" content="JsBridge" />
+    <script type="text/javascript" src="./lib/RockBridge.js"></script>
 </head>
 <body>
     this is hybrid page!
+    <div class="blog-header">
+        <h3>JsBridge调用native测试列表</h3>
+    </div>
+    <ul>
+        <li>
+            Toast弹出<br />
+            代码：<br />
+            <div>
+                RockBridge.callMethod('JsInvokeJavaScope','showToast',{'message':'我是Js调起的Toast'},function(){});
+            </div>
+            <button onclick="RockBridge.callMethod('Messager', 'alert', { 'message': '我是Js调起的Toast' }, function () { });">
+                测试
+            </button>
+
+            <br />
+            <br />
+            <button onclick="RockBridge.callMethod('Window', 'openLoginActivity', { 'userName': 'hxh','password':'123456' }, function () { });">
+                打开Native窗口
+            </button>
+            <br />
+            <br />
+            <button onclick='RockBridge.onComplete(1468511, { "status": { "code": 1, "msg": "Method (showToast) in this class (JsInvokeJavaScope) not found!" } });'>
+                测试onComplete
+            </button>
+        </li>
+    </ul>
 </body>
 </html>

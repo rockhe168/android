@@ -12,7 +12,12 @@ public class JsBridgeWebChromeClient extends WebChromeClient{
 
     @Override
     public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
-        return super.onJsPrompt(view, url, message, defaultValue, result);
+
+        result.confirm();
+
+        JsCallJavaObject.newInstance().call(view,message);
+
+        return true;//super.onJsPrompt(view, url, message, defaultValue, result);
     }
 
     @Override

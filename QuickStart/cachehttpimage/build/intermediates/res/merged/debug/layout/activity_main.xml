@@ -9,4 +9,3 @@
     <TextView android:text="Hello World!" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>
-<!-- From: file:/E:/GitHub/android/QuickStart/cachehttpimage/src/main/res/layout/activity_main.xml -->
